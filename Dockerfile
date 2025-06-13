@@ -5,11 +5,13 @@ FROM python:3.11-slim
 WORKDIR /app
 
 #copy src file from host-directory to working-directory
-COPY src/test.py /app/test.py
+COPY src/tes.py /app
 
 #compile app code
-RUN test.py
+RUN python tes.py  #{to not run script at build time and directly run when you run the container}
 
 #run app
-CMD ["python", "test"]
+CMD ["tes.py"]
+
+ENTRYPOINT ["python"]
 
